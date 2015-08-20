@@ -1,0 +1,25 @@
+{
+  "name": "jscommand",
+  "version": "0.0.1",
+  "description": "JSCommnad follwing bash scripting syntax.",
+  "main": "terminal.js",
+  "scripts": {
+    "test": "grunt test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xgi/JSCommand.git"
+  },
+  "keywords": [
+    "Terminal",
+    "bash",
+    "scripting",
+    "javascript"
+  ],
+  "author": "0xgi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0xgi/JSCommand/issues"
+  },
+  "homepage": "https://github.com/0xgi/JSCommand#readme"
+}
