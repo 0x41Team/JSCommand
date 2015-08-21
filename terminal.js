@@ -1,14 +1,41 @@
 "use strict";
 
-let exec = require('child_process').exec;
-let fs = require('fs');
+var exec = require('child_process').exec;
+var fs = require('fs');
+var path = require('path');
 
-var checkType = function(path) {
-	process.argv.forEach(function(val, index, array) {
+var obj = path.parse('/home/Users/0xgi/Desktop/passwd.crypt');
+console.log(obj);
 
-	})
+console.log(path.format(obj));
+// return string path
+process.argv.forEach(function(val, index, array) {
 
-}
+});
+
+var validation = function(path) {
+    return {
+        isDirectory: function() {
+            fs.stat(path, function(error, stat) {
+                if (!error) {
+                    return stat.isDirectory();
+                }
+            })
+        },
+        isFile: function() {
+            fs.stat(path, function(error, stat) {
+                if (!error) {
+                    return stat.isFile();
+                }
+            })
+        },
+        hasPath: function() {
+            fs.exists(path, function(exists) {
+                return exists;
+            })
+        }
+    }
+};
 
 var Executable = (function(command) {
 	return {
@@ -19,14 +46,15 @@ var Executable = (function(command) {
 			}
 		})
 	}
-})
+});
 
-var terminal = (function(name) {
+var terminal = (function() {
 	var DEFAULTS = {
-		echo: 'Hello 0xgi'
-	}
+		echo: 'Hello 0xgi',
+        flags: false
+	};
 	return {
-		mkdir: function() {
+		mkdir: function(folderName) {
 
 		},
 		rmdir: function() {
@@ -42,7 +70,7 @@ var terminal = (function(name) {
 
 		}
 	}
-})
+});
 
 var compress = (function() {
 	return {
@@ -56,7 +84,7 @@ var compress = (function() {
 
 		}
 	}
-})
+});
 
 var permission = (function() {
 	return {
@@ -64,7 +92,7 @@ var permission = (function() {
 
 		}
 	}
-})
+});
 
 var stringify = (function() {
 	return {
@@ -75,7 +103,7 @@ var stringify = (function() {
 
 		}
 	}
-})
+});
 
 var profile = (function() {
 	return {
@@ -89,8 +117,9 @@ var profile = (function() {
 
 		}
 	}
-})
+});
 
+// Todo
 var process = (function() {
 	return {
 		free: function() {
@@ -109,14 +138,13 @@ var process = (function() {
 
 		}
 	}
-})
+});
 
 var ls = (function() {
 	return {
 
-Nod
 	}
-})
+});
 
 var directory = (function() {
 	return {
@@ -124,7 +152,7 @@ var directory = (function() {
 
 		}
 	}
-})
+});
 
 var readFile = (function(fileName) {
 	return {
@@ -144,7 +172,7 @@ var readFile = (function(fileName) {
 
 		}
 	}
-})
+});
 
 var helper = (function() {
 	return {
@@ -158,4 +186,4 @@ var helper = (function() {
 
 		}
 	}
-})
+});
