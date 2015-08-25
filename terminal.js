@@ -16,23 +16,17 @@ process.argv.forEach(function(val, index, array) {
 var validation = function(path) {
     return {
         isDirectory: function() {
-            fs.stat(path, function(error, stat) {
-                if (!error) {
-                    return stat.isDirectory();
-                }
-            })
+            return fs.statSync(path).isDirectory();
         },
         isFile: function() {
-            fs.stat(path, function(error, stat) {
-                if (!error) {
-                    return stat.isFile();
-                }
-            })
+            return fs.statSync(path).isFile();
         },
         hasPath: function() {
-            fs.exists(path, function(exists) {
-                return exists;
-            })
+            if (fs.existsSync(path)) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 };
