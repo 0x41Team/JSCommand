@@ -13,6 +13,9 @@ process.argv.forEach(function(val, index, array) {
 
 });
 
+// Original answer from 2010 (stat/statSync or lstat/lstatSync)
+// Update September 2012 (exits/existSync)
+// Update February 2015 (stat/statSync or lstat/lstatSync)
 var validation = function(path) {
     return {
         isDirectory: function() {
